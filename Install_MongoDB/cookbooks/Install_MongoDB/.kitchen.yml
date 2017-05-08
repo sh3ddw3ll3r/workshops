@@ -1,0 +1,39 @@
+---
+driver:
+  name: azurerm
+
+driver_config:
+  subscription_id: '1ae88a43-7a28-4da6-b215-1d9061e81b1d'
+  location: 'Central US'
+  machine_size: 'Standard_A0'
+
+transport:
+  ssh_key: ~/.ssh/id_rsa
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.2
+    driver_config:
+      image_urn: OpenLogic:CentOS:7.2:7.2.20170105
+      vm_name: centos72-vm
+      vm_tags:
+        ostype: linux
+        distro: centos
+
+suites:
+  - name: default
+    run_list:
+      - recipe[Install_MongoDB::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
