@@ -5,7 +5,7 @@ driver:
 driver_config:
   subscription_id: '1ae88a43-7a28-4da6-b215-1d9061e81b1d'
   location: 'Central US'
-  machine_size: 'Standard_A0'
+  machine_size: 'Standard_A2'
 
 transport:
   ssh_key: ~/.ssh/id_rsa
@@ -21,18 +21,18 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-14.04
+  - name: centos-7.2
     driver_config:
-      image_urn: Canonical:UbuntuServer:14.04.4-LTS:latest
-      vm_name: trusty-vm
+      image_urn: OpenLogic:CentOS:7.2:7.2.20170105
+      vm_name: centos72-vm
       vm_tags:
         ostype: linux
-        distro: ubuntu
+        distro: centos
 
 suites:
   - name: default
     run_list:
-      - recipe[Awesome_Appliance_Repair::default]
+      - recipe[Tomcat::default]
     verifier:
       inspec_tests:
         - test/smoke/default

@@ -1,0 +1,9 @@
+default['tomcat']['group']          = 'tomcat'
+default['tomcat']['groupgid']       = 1234
+default['tomcat']['user']           = 'tomcat'
+default['tomcat']['usergid']        = 1234
+default['tomcat']['password']       = '!Lordiwasbornaramblinman@#12'
+default['tomcat']['version']        = '8.5.9'
+default['tomcat']['archivefile']    = "apache-tomcat-#{node['tomcat']['version']}.tar.gz"
+default['tomcat']['archiveurl']     = "https://archive.apache.org/dist/tomcat/tomcat-8/v#{node['tomcat']['version']}/bin/#{node['tomcat']['archivefile']}"
+default['tomcat']['installdir']     = "/opt/tomcat"
