@@ -59,25 +59,6 @@ template tomcat_service_file do
   source 'tomcat.service.erb'
 end
 
-# reload systemctl to pick up the new Tomcat service
-#execute "reload-systemctl" do
-#    command "systemctl daemon-reload"
-#    user 'root'
-#end
-#
-## Enable Tomcat service to start on boot
-#execute "enable-tomcat-on-boot" do
-#    command "systemctl enable tomcat"
-#    user 'root'
-#end
-#
-## Start the new Tomcat service
-#execute "start-tomcat" do
-#    command "systemctl start tomcat"
-#    user 'root'
-#end
-
-# no errors, but TOmcat didn't start'
 # Start and enable the Tomcat service
 service "tomcat" do
   action [:enable, :start]
