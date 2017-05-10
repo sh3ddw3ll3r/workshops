@@ -35,3 +35,4 @@ This one is diffcult to demo as it has been implemented on our on premise Chef a
 * the controls listed above are reported as not complaint if the settings are off
 * several cookbooks are in development, one of which is gts_cto_gpo which manages global windows settings
 * the http.rb recipe ensures that the http settings defined in compliance control are applied to every node.
+** Note: the recipe make use of powershell to set the registry properties. I encountered some limitations in the registry_key resource. It checks for registry existence and creates it, if missing, and sets any properties. However if the key exists, the resource doesn't not update incorrect properties.
