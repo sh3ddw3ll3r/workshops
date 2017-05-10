@@ -1,0 +1,10 @@
+[
+    {
+        "Name":  "iis-server.domain.com",
+        "Role":  "webserver"
+    },
+	{
+        "Name":  "sql-server.domain.com",
+        "Role":  "sqlserver"
+    }
+]
